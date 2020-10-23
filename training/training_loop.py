@@ -307,12 +307,12 @@ def training_loop(
                 #
                 # Delete old pkl so only the new one is keep
                 #
-                pkltodelete = os.path.join(run_dir, f'network-snapshot-*.pkl')
+                pkltodelete = os.path.join(run_dir, f'network-snapshot*.pkl')
 
                 for f in glob.glob(pkltodelete):
                     os.remove(f)
                 ############################################
-                pkl = os.path.join(run_dir, f'network-snapshot-{cur_nimg // 1000:06d}.pkl')
+                pkl = os.path.join(run_dir, f'network-snapshot.pkl')
 
                 with open(pkl, 'wb') as f:
                     pickle.dump((G, D, Gs), f)
