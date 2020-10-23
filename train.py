@@ -171,7 +171,7 @@ def setup_training_options(
         '11gb-gpu':         dict(ref_gpus=1,  kimg=25000,  mb=4,  mbstd=4,  fmaps=1,   lrate=0.002,  gamma=10,   ema=10,  ramp=None, map=8), # uses mixed-precision, 11GB GPU
         '11gb-gpu-complex': dict(ref_gpus=1,  kimg=25000,  mb=4,  mbstd=4,  fmaps=1,   lrate=0.002,  gamma=10,   ema=10,  ramp=None, map=8), # uses mixed-precision, 11GB GPU
         '16gb-gpu-256':     dict(ref_gpus=1,  kimg=25000,  mb=16, mbstd=8,  fmaps=1,   lrate=0.002,  gamma=10,   ema=10,  ramp=None, map=8), # uses mixed-precision, 11GB GPU and some auto
-        '16gb-gpu-256v2':   dict(ref_gpus=1,  kimg=25000,  mb=28, mbstd=8,  fmaps=1,   lrate=0.002,  gamma=10,   ema=10,  ramp=None, map=8), # uses mixed-precision, 11GB GPU and some auto
+        '16gb-gpu-256v2':   dict(ref_gpus=1,  kimg=25000,  mb=24, mbstd=8,  fmaps=1,   lrate=0.002,  gamma=10,   ema=10,  ramp=None, map=8), # uses mixed-precision, 11GB GPU and some auto
         '16gb-gpu-512':     dict(ref_gpus=1,  kimg=25000,  mb=12, mbstd=4,  fmaps=1,   lrate=0.002,  gamma=10,   ema=10,  ramp=None, map=8), # uses mixed-precision, 11GB GPU and some auto
         '24gb-gpu':         dict(ref_gpus=1,  kimg=25000,  mb=8,  mbstd=8,  fmaps=1,   lrate=0.002,  gamma=10,   ema=10,  ramp=None, map=8), # uses mixed-precision, 24GB GPU
         '24gb-gpu-complex': dict(ref_gpus=1,  kimg=25000,  mb=8,  mbstd=8,  fmaps=1,   lrate=0.002,  gamma=10,   ema=10,  ramp=None, map=8), # uses mixed-precision, 24GB GPU
