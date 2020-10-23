@@ -311,7 +311,7 @@ def training_loop(
 
                 for f in pkltodelete:
                     try:
-                        f.unlink()
+                        os.remove(f)
                     except OSError as e:
                         print("Error: %s : %s" % (f, e.strerror))
                 ############################################
