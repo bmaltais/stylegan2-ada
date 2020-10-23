@@ -309,11 +309,8 @@ def training_loop(
                 #
                 pkltodelete = os.path.join(run_dir, f'network-snapshot-*.pkl')
 
-                for f in pkltodelete:
-                    try:
-                        os.remove(f)
-                    except OSError as e:
-                        print("Error: %s : %s" % (f, e.strerror))
+                for f in glob.glob(pkltodelete):
+                    os.remove(f)
                 ############################################
                 pkl = os.path.join(run_dir, f'network-snapshot-{cur_nimg // 1000:06d}.pkl')
 
