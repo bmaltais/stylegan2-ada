@@ -304,16 +304,8 @@ def training_loop(
                 grid_fakes = Gs.run(grid_latents, grid_labels, is_validation=True, minibatch_size=minibatch_gpu)
                 save_image_grid(grid_fakes, os.path.join(run_dir, f'fakes{cur_nimg // 1000:06d}.jpg'), drange=[-1,1], grid_size=grid_size)
             if network_snapshot_ticks is not None and (done or cur_tick % network_snapshot_ticks == 0):
-                #
-                # Delete old pkl so only the new one is keep
-                #
-                pkltodelete = os.path.join(run_dir, f'network-snapshot.pkl')
-
-                for f in glob.glob(pkltodelete):
-                    os.remove(f)
-                ############################################
                 pkl = os.path.join(run_dir, f'network-snapshot.pkl')
-
+                os.remove(pkl)
                 with open(pkl, 'wb') as f:
                     pickle.dump((G, D, Gs), f)
                 if len(metrics):
