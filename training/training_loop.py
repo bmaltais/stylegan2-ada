@@ -305,16 +305,9 @@ def training_loop(
             if network_snapshot_ticks is not None and (done or cur_tick % network_snapshot_ticks == 0):
                 pkl = os.path.join(run_dir, f'network-snapshot.pkl')
 
-                dir_name = os.path.basename(os.path.dirname(run_dir))
-
-                file_list = drive.ListFile({'q': f"'{dir_name}' in parents and name='network-snapshot.pkl' and trashed=false"}).GetList()
-
-                for file in file_list:
-                    print("Fileid to delete:")
-                    print('%s' % (file['id']))
-
                 try:
                     os.remove(pkl)
+                    time.sleep(5) #Give time for google drive to notice that the file was deleted otherwise it does not realise it
                 except:
                     print("Error while deleting file ", pkl)
                     
