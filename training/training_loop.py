@@ -9,7 +9,6 @@
 """Main training loop."""
 
 import os
-import glob
 import pickle
 import time
 import PIL.Image
@@ -305,7 +304,11 @@ def training_loop(
                 save_image_grid(grid_fakes, os.path.join(run_dir, f'fakes{cur_nimg // 1000:06d}.jpg'), drange=[-1,1], grid_size=grid_size)
             if network_snapshot_ticks is not None and (done or cur_tick % network_snapshot_ticks == 0):
                 pkl = os.path.join(run_dir, f'network-snapshot.pkl')
-                os.remove(pkl)
+                try:
+                    os.remove(pkl)
+                except:
+                    print("Error while deleting file ", pkl)
+                    
                 with open(pkl, 'wb') as f:
                     pickle.dump((G, D, Gs), f)
                 if len(metrics):
