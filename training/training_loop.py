@@ -307,7 +307,7 @@ def training_loop(
                 #
                 # Delete old pkl so only the new one is keep
                 #
-                pkltodelete = os.path.join(run_dir, f'network-snapshot*.pkl')
+                pkltodelete = os.path.join(run_dir, f'network-snapshot.pkl')
 
                 for f in glob.glob(pkltodelete):
                     os.remove(f)
